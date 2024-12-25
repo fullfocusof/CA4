@@ -1,5 +1,6 @@
 #include "DequeInterraction.h"
 
+
 void printQuit()
 {
 	cout << endl << endl << "Backspace - возврат в меню";
@@ -45,32 +46,6 @@ void DequeInterraction::printLong(LongNumber& num)
 	}
 }
 
-void DequeInterraction::InsertBegin(LongNumber& num, int value)
-{
-	DequeNode* temp = new DequeNode;
-	temp->data = value;
-	temp->next = num.first;
-	temp->prev = nullptr;
-
-	if (num.first == nullptr) num.last = temp;
-	else num.first->prev = temp;
-
-	num.first = temp;
-}
-
-void DequeInterraction::InsertEnd(LongNumber& num, int value)
-{
-	DequeNode* temp = new DequeNode;
-	temp->data = value;
-	temp->next = nullptr;
-	temp->prev = num.last;
-
-	if (num.last == nullptr) num.first = temp;
-	else num.last->next = temp;
-
-	num.last = temp;
-}
-
 LongNumber DequeInterraction::Init()
 {
 	string ex;
@@ -93,24 +68,11 @@ LongNumber DequeInterraction::Init()
 
 	for (int i = 0; i < ex.size(); i++)
 	{
-		if (isdigit(ex[i])) InsertBegin(result, int(ex[i] - '0'));
+		if (isdigit(ex[i])) LongNumber::InsertBegin(result, int(ex[i] - '0')); result.InsertBegin
 		else break;
 	}
 
 	return result;
-}
-
-int DequeInterraction::getSize(LongNumber& num)
-{
-	int cnt = 0;
-
-	while (num.first != nullptr)
-	{
-		cnt++;
-		num.first = num.first->next;
-	}
-
-	return cnt;
 }
 
 int DequeInterraction::Compare(LongNumber& num1, LongNumber& num2) // 0 - "="      1 - num1>num2      -1 - num1<num2
@@ -393,3 +355,18 @@ LongNumber DequeInterraction::MultiplyLong(LongNumber& num1, LongNumber& num2)
 	return result;
 }
 
+void DequeInterraction::Divide(LongNumber& dividend, LongNumber& divisor, LongNumber& quotient, LongNumber& remainder) 
+{
+	if (divisor.first == nullptr) throw invalid_argument("Деление на ноль");
+
+	remainder = dividend;
+	quotient.first = quotient.last = nullptr;
+	while (remainder >= divisor)
+	{
+		remainder =  remainder - divisor;
+		// Увеличиваем счетчик в частном
+	}
+
+	// Удаляем лишние нули из частного
+	// Удаляем лишние нули из остатка
+}

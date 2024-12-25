@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DequeInterraction.cpp" />
+    <ClCompile Include="LongNumber.cpp" />
     <ClCompile Include="LR4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DequeInterraction.h" />
+    <ClInclude Include="LongNumber.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
