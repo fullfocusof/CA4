@@ -1,4 +1,5 @@
 ﻿#include "DequeInterraction.h"
+#include "LongNumber.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -47,7 +48,6 @@ int main()
 			"Сравнение двух длинных чисел",
 			"Сложение двух длинных чисел",
 			"Вычитание двух длинных чисел",
-			"Умножение длинного числа",
 			"Умножение двух длинных чисел",
 			"Деление с остатком двух длинных чисел",
 			"Возведение в степень длинного числа",
@@ -100,11 +100,10 @@ int main()
 					case 0:
 					{
 						system("cls");
-
+						
 						LongNumber mainInput = test.Init();
 						test.setInput(mainInput);
-						cout << endl << "Успешный ввод";
-						
+
 						printQuit();
 					}
 					break;
@@ -114,7 +113,7 @@ int main()
 						system("cls");
 
 						LongNumber mainInput = test.getInput();
-						test.printLong(mainInput);
+						mainInput.Print();
 
 						printQuit();
 					}
@@ -124,40 +123,30 @@ int main()
 					{
 						system("cls");
 
-						LongNumber forCompare = test.Init();
-						LongNumber mainInput = test.getInput();
-
-						system("cls");
-						test.printLong(mainInput);
-						switch (test.Compare(mainInput, forCompare))
+						try
 						{
-							case -1:
+							LongNumber forCompare = test.Init();
+							LongNumber mainInput = test.getInput();
+							if (mainInput > forCompare)
 							{
-								cout << " < ";
-								
+								mainInput.Print(); cout << " > "; forCompare.Print();
 							}
-							break;
+							else if (mainInput == forCompare)
+							{
+								mainInput.Print(); cout << " = "; forCompare.Print();
+							}
+							else if (mainInput < forCompare)
+							{
+								mainInput.Print(); cout << " < "; forCompare.Print();
+							}
+							else throw exception("Ошибка сравнения");
 
-							case 1:
-							{
-								cout << " > ";
-							}
-							break;
-
-							case 0:
-							{
-								cout << " = ";
-							}
-							break;
-
-							default:
-							{
-								cerr << "Ошибка при сравнении";
-							}
-							break;
 						}
-						test.printLong(forCompare);
-							
+						catch (const exception& ex)
+						{
+							cout << ex.what();
+						}
+
 						printQuit();
 					}
 					break;
@@ -165,14 +154,13 @@ int main()
 					case 3:
 					{
 						system("cls");
-
+						
 						LongNumber forSum = test.Init();
 						LongNumber mainInput = test.getInput();
-						LongNumber sum = test.Sum(mainInput, forSum);
-
+						LongNumber sum = mainInput + forSum;
 						system("cls");
-						test.printLong(mainInput); cout << " + "; test.printLong(forSum); cout << " = "; test.printLong(sum);
-						
+						mainInput.Print(); cout << " + "; forSum.Print(); cout << " = "; sum.Print();
+
 						printQuit();
 					}
 					break;
@@ -183,10 +171,9 @@ int main()
 
 						LongNumber forDec = test.Init();
 						LongNumber mainInput = test.getInput();
-						LongNumber diff = test.Decision(mainInput, forDec);
-
+						LongNumber dec = mainInput - forDec;
 						system("cls");
-						test.printLong(mainInput); cout << " - "; test.printLong(forDec); cout << " = "; test.printLong(diff);
+						mainInput.Print(); cout << " - "; forDec.Print(); cout << " = "; dec.Print();
 
 						printQuit();
 					}
@@ -196,14 +183,11 @@ int main()
 					{
 						system("cls");
 
-						int mp;
-						cout << "Введите множитель: ";
-						cin >> mp;
+						LongNumber forMp = test.Init();
 						LongNumber mainInput = test.getInput();
-						LongNumber prod = test.MultiplySingle(mainInput, mp);
-
+						LongNumber mp = mainInput * forMp;
 						system("cls");
-						test.printLong(mainInput); cout << " * " << mp << " = "; test.printLong(prod);
+						mainInput.Print(); cout << " * "; forMp.Print(); cout << " = "; mp.Print();
 
 						printQuit();
 					}
@@ -213,13 +197,20 @@ int main()
 					{
 						system("cls");
 
-						LongNumber forMp = test.Init();
-						LongNumber mainInput = test.getInput();
-						LongNumber prod = test.MultiplyLong(mainInput, forMp);
-
-						system("cls");
-						test.printLong(mainInput); cout << " * "; test.printLong(forMp); cout << " = "; test.printLong(prod);
-
+						try
+						{
+							LongNumber forDiv = test.Init();
+							LongNumber mainInput = test.getInput();
+							pair<LongNumber, LongNumber> divPair = mainInput.divide(forDiv);
+							system("cls");
+							mainInput.Print(); cout << " / "; forDiv.Print(); cout << " = "; divPair.first.Print(); cout << endl;
+							cout << "Остаток: "; divPair.second.Print();
+						}
+						catch (const exception& ex)
+						{
+							cout << ex.what();
+						}
+						
 						printQuit();
 					}
 					break;
@@ -228,23 +219,26 @@ int main()
 					{
 						system("cls");
 
-
-
+						try
+						{
+							long long forPow;
+							cout << "Введите степень: ";
+							cin >> forPow;
+							LongNumber mainInput = test.getInput();
+							LongNumber powed = mainInput.getPow(forPow);
+							system("cls");
+							mainInput.Print(); cout << " ^ " << forPow << " = "; powed.Print();
+						}
+						catch (const exception& ex)
+						{
+							cout << ex.what();
+						}
+		
 						printQuit();
 					}
 					break;
 
 					case 8:
-					{
-						system("cls");
-
-
-
-						printQuit();
-					}
-					break;
-
-					case 9:
 					{
 						exitProg = true;
 					}

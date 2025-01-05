@@ -1,59 +1,43 @@
 #include "LongNumber.h"
 
-void LongNumber::InsertBegin(LongNumber& num, int value)
+void LongNumber::Print()
 {
-	DequeNode* temp = new DequeNode;
-	temp->data = value;
-	temp->next = num.first;
-	temp->prev = nullptr;
-
-	if (num.first == nullptr) num.last = temp;
-	else num.first->prev = temp;
-
-	num.first = temp;
+	if (isNegative) cout << "-";
+	for (int i = num.size() - 1; i >= 0; i--)
+	{
+		cout << num[i];
+	}
 }
 
-void LongNumber::InsertEnd(LongNumber& num, int value)
+void LongNumber::Clear()
 {
-	DequeNode* temp = new DequeNode;
-	temp->data = value;
-	temp->next = nullptr;
-	temp->prev = num.last;
+	isNegative = false;
+	num.clear();
+}
 
-	if (num.last == nullptr) num.first = temp;
-	else num.last->next = temp;
+void LongNumber::InsertBegin(int value)
+{
+	num.insert(num.begin(), value);
+}
 
-	num.last = temp;
+void LongNumber::InsertEnd(int value)
+{
+	num.push_back(value);
 }
 
 int LongNumber::getLength()
 {
-	int cnt = 0;
+	return num.size();
+}
 
-	while (this->first != nullptr)
-	{
-		cnt++;
-		this->first = this->first->next;
-	}
-
-	return cnt;
+bool LongNumber::isEmpty()
+{
+	return num.empty();
 }
 
 bool LongNumber::operator==(LongNumber& other)
 {
-	if (this->isNegative != other.isNegative) return false;
-	if (this->getLength() != other.getLength()) return false;
-
-	DequeNode* current1 = this->first;
-	DequeNode* current2 = other.first;
-
-	while (current1 != nullptr) 
-	{
-		if (current1->data != current2->data) return false;
-		current1 = current1->next;
-		current2 = current2->next;
-	}
-	return true;
+	return (isNegative == other.isNegative) && (num == other.num);
 }
 
 bool LongNumber::operator!=(LongNumber& other)
@@ -61,99 +45,188 @@ bool LongNumber::operator!=(LongNumber& other)
 	return !(*this == other);
 }
 
-bool LongNumber::operator>(LongNumber& other)
-{
-	if (this->isNegative && !other.isNegative) return false; // num1 отрицательное, num2 положительное
-	if (!this->isNegative && other.isNegative) return true; // num1 положительное, num2 отрицательное
-
-	if (this->getLength() > other.getLength()) return !this->isNegative; // Длиннее и положительное
-	if (this->getLength() < other.getLength()) return this->isNegative; // Длиннее и отрицательное
-
-	DequeNode* current1 = this->first;
-	DequeNode* current2 = other.first;
-	while (current1 != nullptr) 
-	{
-		if (current1->data > current2->data) return !this->isNegative; // num1 больше
-		if (current1->data < current2->data) return this->isNegative; // num2 больше
-		current1 = current1->next;
-		current2 = current2->next;
-	}
-	return false; // Они равны
-}
-
 bool LongNumber::operator<(LongNumber& other)
 {
-	return !(*this >= other);
+	if (isNegative != other.isNegative) return isNegative;
+	if (num.size() != other.num.size()) return (isNegative) ? (num.size() > other.num.size()) : (num.size() < other.num.size());
+	for (int i = num.size() - 1, j = other.num.size() - 1; i >= 0, j >= 0; i--, j--)
+	{
+		if (num[i] != other.num[i]) return (isNegative) ? (num[i] > other.num[i]) : (num[i] < other.num[i]);
+	}
+	return false;
+}
+
+bool LongNumber::operator>(LongNumber& other)
+{
+	return other < *this;
 }
 
 bool LongNumber::operator<=(LongNumber& other)
 {
-	return (*this < other) || (*this == other);
+	return !(*this > other);
 }
 
 bool LongNumber::operator>=(LongNumber& other)
 {
-	return (*this > other) || (*this == other);
+	return !(*this < other);
+}
+
+LongNumber LongNumber::operator-() const
+{
+	LongNumber result = *this;
+	result.isNegative = !result.isNegative;
+	return result;
 }
 
 LongNumber LongNumber::operator+(const LongNumber& other) const
 {
-	LongNumber result;
-	result.first = result.last = nullptr;
-
-	// Если оба числа отрицательные
-	if (this->isNegative && other.isNegative) 
+	if (isNegative == other.isNegative) 
 	{
-		result.isNegative = true;
-		// Сложение модулей
-		// ...
-	}
-	// Если одно число отрицательное
-	else if (this->isNegative || other.isNegative) 
-	{
-		// Вычисляем разность модулей
-		// ...
-	}
-	// Если оба числа положительные
-	else 
-	{
+		LongNumber result;
 		int carry = 0;
-		DequeNode* current1 = this->last;
-		DequeNode* current2 = other.last;
-
-		while (current1 != nullptr || current2 != nullptr || carry != 0) 
+		int maxSize = max(num.size(), other.num.size());
+		for (int i = 0; i < maxSize || carry; i++) 
 		{
 			int sum = carry;
-			if (current1 != nullptr) 
-			{
-				sum += current1->data;
-				current1 = current1->prev;
-			}
-			if (current2 != nullptr) 
-			{
-				sum += current2->data;
-				current2 = current2->prev;
-			}
-			InsertBegin(result, sum % 10); // Вставляем цифру в начало
-			carry = sum / 10; // Перенос
+			if (i < num.size()) sum += num[i];
+			if (i < other.num.size()) sum += other.num[i];
+			result.InsertEnd(sum % 10);
+			carry = sum / 10;
 		}
+		result.isNegative = isNegative;
+		return result;
 	}
-
-	RemoveLeadingZeros(result);
-	return result;
+	else return (*this - (-other));
 }
 
 LongNumber LongNumber::operator-(const LongNumber& other) const
 {
-	return LongNumber();
+	if (isNegative != other.isNegative) return *this + (-other);
+
+	LongNumber result;
+	bool resultNegative = false;
+
+	LongNumber left = *this; left.isNegative = false;
+	LongNumber right = other; right.isNegative = false;
+	if (left <= right) resultNegative = !isNegative;
+	else resultNegative = isNegative;
+
+	LongNumber minuend = left < right ? right : left;
+	LongNumber subtrahend = left < right ? left : right;
+
+	int borrow = 0;
+	int maxSize = minuend.getLength();
+	for (int i = 0; i < maxSize; ++i) 
+	{
+		int minuendDigit = minuend.num[i];
+		int subtrahendDigit = (i < subtrahend.getLength()) ? subtrahend.num[i] : 0;
+		int diff = minuendDigit - subtrahendDigit - borrow;
+		if (diff < 0) 
+		{
+			diff += 10;
+			borrow = 1;
+		}
+		else borrow = 0;
+		result.InsertEnd(diff);
+	}
+
+	while (result.num.size() > 1 && result.num.back() == 0) result.num.pop_back();
+	result.isNegative = resultNegative;
+	return result;
 }
 
 LongNumber LongNumber::operator*(const LongNumber& other) const
 {
-	return LongNumber();
+	LongNumber result;
+	result.num.resize(num.size() + other.num.size(), 0);
+
+	for (int i = 0; i < num.size(); ++i) 
+	{
+		for (int j = 0; j < other.num.size(); ++j) 
+		{
+			result.num[i + j] += num[i] * other.num[j];
+			if (result.num[i + j] >= 10) 
+			{
+				result.num[i + j + 1] += result.num[i + j] / 10;
+				result.num[i + j] %= 10;
+			}
+		}
+	}
+
+	while (result.num.size() > 1 && result.num.back() == 0) result.num.pop_back();
+	result.isNegative = isNegative != other.isNegative && result.num.back() != 0;
+	return result;
 }
 
-LongNumber LongNumber::operator/(const LongNumber& other) const
+pair<LongNumber, LongNumber> LongNumber::divide(LongNumber& other)
 {
-	return LongNumber();
+	if (other.num.back() == 0 && other.num.size() == 1) throw exception("Деление на ноль");
+
+	LongNumber result;
+	result.isNegative = false;
+
+	LongNumber left = *this; left.isNegative = false;
+	LongNumber right = other; right.isNegative = false;
+
+	LongNumber zero;
+	zero.isNegative = false;
+	zero.InsertEnd(0);
+
+	if (left < right)
+	{
+		result.InsertEnd(0);
+		return make_pair(result, *this);
+	}
+	else if (left == right)
+	{
+		result.InsertEnd(1);
+		return make_pair(result, zero);
+	}
+	else
+	{
+		LongNumber inc;
+		inc.isNegative = false;
+		inc.InsertEnd(1);
+
+		result.InsertEnd(0);
+		while (left >= right)
+		{
+			left = left - right;
+			result = result + inc;
+		}
+
+		LongNumber remainder = left;
+		remainder.isNegative = false;
+		if (remainder.num.front() != 0 && remainder.num.size() >= 1)
+		{
+			if ((isNegative && other.isNegative) || isNegative)
+			{
+				left = *this; left.isNegative = false;
+				result = result + inc;
+				remainder = result * right - left;
+			}
+		}
+
+		result.isNegative = isNegative != other.isNegative && result.num.back() != 0;
+		return make_pair(result, remainder);
+	}
+}
+
+LongNumber LongNumber::getPow(long long pow)
+{
+	if (pow < 0) throw exception("Степень не может быть отрицательной");
+
+	LongNumber result;
+	result.InsertEnd(1);
+
+	LongNumber base = *this;
+
+	while (pow != 0)
+	{
+		if ((pow & 1) != 0) result = result * base;
+		base = base * base;
+		pow >>= 1;
+	}
+
+	return result;
 }

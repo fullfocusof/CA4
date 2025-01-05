@@ -1,26 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\CompAlgebra\\LR4\\",
+  "WorkspaceRootPath": "C:\\Projects\\CompAlgebra\\CA4\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|D:\\Projects\\CompAlgebra\\LR4\\DequeInterraction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:DequeInterraction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|D:\\Projects\\CompAlgebra\\LR4\\DequeInterraction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:DequeInterraction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|D:\\Projects\\CompAlgebra\\LR4\\LongNumber.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:LongNumber.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|D:\\Projects\\CompAlgebra\\LR4\\LongNumber.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|C:\\Projects\\CompAlgebra\\CA4\\LongNumber.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:LongNumber.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|D:\\Projects\\CompAlgebra\\LR4\\LR4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|C:\\Projects\\CompAlgebra\\CA4\\LR4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:LR4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|C:\\Projects\\CompAlgebra\\CA4\\DequeInterraction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:DequeInterraction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|C:\\Projects\\CompAlgebra\\CA4\\LongNumber.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:LongNumber.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|C:\\Projects\\CompAlgebra\\CA4\\DequeInterraction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{17B576FA-1673-4B7E-AFB8-A4139E4D010E}|LR4.vcxproj|solutionrelative:DequeInterraction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "LongNumber.h",
-              "DocumentMoniker": "D:\\Projects\\CompAlgebra\\LR4\\LongNumber.h",
+              "DocumentMoniker": "C:\\Projects\\CompAlgebra\\CA4\\LongNumber.h",
               "RelativeDocumentMoniker": "LongNumber.h",
-              "ToolTip": "D:\\Projects\\CompAlgebra\\LR4\\LongNumber.h",
+              "ToolTip": "C:\\Projects\\CompAlgebra\\CA4\\LongNumber.h",
               "RelativeToolTip": "LongNumber.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-16T05:27:50.987Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "LongNumber.cpp",
-              "DocumentMoniker": "D:\\Projects\\CompAlgebra\\LR4\\LongNumber.cpp",
+              "DocumentMoniker": "C:\\Projects\\CompAlgebra\\CA4\\LongNumber.cpp",
               "RelativeDocumentMoniker": "LongNumber.cpp",
-              "ToolTip": "D:\\Projects\\CompAlgebra\\LR4\\LongNumber.cpp",
+              "ToolTip": "C:\\Projects\\CompAlgebra\\CA4\\LongNumber.cpp",
               "RelativeToolTip": "LongNumber.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAAAM4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-16T05:28:36.387Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "DequeInterraction.h",
-              "DocumentMoniker": "D:\\Projects\\CompAlgebra\\LR4\\DequeInterraction.h",
+              "DocumentMoniker": "C:\\Projects\\CompAlgebra\\CA4\\DequeInterraction.h",
               "RelativeDocumentMoniker": "DequeInterraction.h",
-              "ToolTip": "D:\\Projects\\CompAlgebra\\LR4\\DequeInterraction.h",
+              "ToolTip": "C:\\Projects\\CompAlgebra\\CA4\\DequeInterraction.h",
               "RelativeToolTip": "DequeInterraction.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-15T15:04:13.059Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "DequeInterraction.cpp",
-              "DocumentMoniker": "D:\\Projects\\CompAlgebra\\LR4\\DequeInterraction.cpp",
+              "DocumentMoniker": "C:\\Projects\\CompAlgebra\\CA4\\DequeInterraction.cpp",
               "RelativeDocumentMoniker": "DequeInterraction.cpp",
-              "ToolTip": "D:\\Projects\\CompAlgebra\\LR4\\DequeInterraction.cpp",
+              "ToolTip": "C:\\Projects\\CompAlgebra\\CA4\\DequeInterraction.cpp",
               "RelativeToolTip": "DequeInterraction.cpp",
-              "ViewState": "AgIAAPkAAAAAAAAAAAAAAEYAAABbAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-15T15:04:26.572Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "LR4.cpp",
-              "DocumentMoniker": "D:\\Projects\\CompAlgebra\\LR4\\LR4.cpp",
+              "DocumentMoniker": "C:\\Projects\\CompAlgebra\\CA4\\LR4.cpp",
               "RelativeDocumentMoniker": "LR4.cpp",
-              "ToolTip": "D:\\Projects\\CompAlgebra\\LR4\\LR4.cpp",
+              "ToolTip": "C:\\Projects\\CompAlgebra\\CA4\\LR4.cpp",
               "RelativeToolTip": "LR4.cpp",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAAKkAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAMgAAAAAAAAAAAAAANQAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-15T15:02:38.197Z"
+              "WhenOpened": "2024-11-15T15:02:38.197Z",
+              "EditorCaption": ""
             }
           ]
         }
