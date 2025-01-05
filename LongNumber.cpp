@@ -158,14 +158,14 @@ LongNumber LongNumber::operator*(const LongNumber& other) const
 	return result;
 }
 
-pair<LongNumber, LongNumber> LongNumber::divide(LongNumber& other)
+pair<LongNumber, LongNumber> LongNumber::divide(LongNumber& first, LongNumber& other)
 {
 	if (other.num.back() == 0 && other.num.size() == 1) throw exception("Деление на ноль");
 
 	LongNumber result;
 	result.isNegative = false;
 
-	LongNumber left = *this; left.isNegative = false;
+	LongNumber left = first; left.isNegative = false;
 	LongNumber right = other; right.isNegative = false;
 
 	LongNumber zero;
@@ -175,7 +175,7 @@ pair<LongNumber, LongNumber> LongNumber::divide(LongNumber& other)
 	if (left < right)
 	{
 		result.InsertEnd(0);
-		return make_pair(result, *this);
+		return make_pair(result, first);
 	}
 	else if (left == right)
 	{
@@ -201,7 +201,7 @@ pair<LongNumber, LongNumber> LongNumber::divide(LongNumber& other)
 		{
 			if ((isNegative && other.isNegative) || isNegative)
 			{
-				left = *this; left.isNegative = false;
+				left = first; left.isNegative = false;
 				result = result + inc;
 				remainder = result * right - left;
 			}
@@ -229,4 +229,20 @@ LongNumber LongNumber::getPow(long long pow)
 	}
 
 	return result;
+}
+
+LongNumber LongNumber::gcd(LongNumber& other)
+{
+	LongNumber a = *this; a.isNegative = false;
+	LongNumber b = other; b.isNegative = false;
+	
+	while (b.num.size() > 0 && !(b.num.size() == 1 && b.num[0] == 0)) 
+	{
+		LongNumber temp = b;
+		pair<LongNumber, LongNumber> divPairAB = divide(a, b);
+		b = divPairAB.second;
+		a = temp;
+	}
+
+	return a;
 }

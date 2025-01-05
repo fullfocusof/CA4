@@ -1,7 +1,11 @@
-﻿  LongNumber.cpp
+﻿  DequeInterraction.cpp
+C:\Projects\CompAlgebra\CA4\DequeInterraction.cpp(43,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  LR4.cpp
+  LongNumber.cpp
 C:\Projects\CompAlgebra\CA4\LongNumber.cpp(6,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 C:\Projects\CompAlgebra\CA4\LongNumber.cpp(30,17): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
 C:\Projects\CompAlgebra\CA4\LongNumber.cpp(52,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 C:\Projects\CompAlgebra\CA4\LongNumber.cpp(52,33): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 C:\Projects\CompAlgebra\CA4\LongNumber.cpp(87,15): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  Создание кода...
   LR4.vcxproj -> C:\Projects\CompAlgebra\CA4\x64\Debug\LR4.exe

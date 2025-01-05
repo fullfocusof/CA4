@@ -51,6 +51,7 @@ int main()
 			"Умножение двух длинных чисел",
 			"Деление с остатком двух длинных чисел",
 			"Возведение в степень длинного числа",
+			"НОД двух длинных чисел",
 			"Выход"
 		};
 
@@ -201,7 +202,7 @@ int main()
 						{
 							LongNumber forDiv = test.Init();
 							LongNumber mainInput = test.getInput();
-							pair<LongNumber, LongNumber> divPair = mainInput.divide(forDiv);
+							pair<LongNumber, LongNumber> divPair = mainInput.divide(mainInput, forDiv);
 							system("cls");
 							mainInput.Print(); cout << " / "; forDiv.Print(); cout << " = "; divPair.first.Print(); cout << endl;
 							cout << "Остаток: "; divPair.second.Print();
@@ -239,6 +240,27 @@ int main()
 					break;
 
 					case 8:
+					{
+						system("cls");
+
+						try
+						{
+							LongNumber forGCD = test.Init();
+							LongNumber mainInput = test.getInput();
+							LongNumber gcd = mainInput.gcd(forGCD);
+							system("cls");
+							cout << "НОД ( "; mainInput.Print(); cout << " , "; forGCD.Print(); cout << " ): "; gcd.Print();
+						}
+						catch (const exception& ex)
+						{
+							cout << ex.what();
+						}
+
+						printQuit();
+					}
+					break;
+
+					case 9:
 					{
 						exitProg = true;
 					}

@@ -16,7 +16,7 @@ using namespace std;
 class LongNumber
 {
 	vector<int> num;
-	
+
 public:
 
 	bool isNegative;
@@ -40,7 +40,7 @@ public:
 	LongNumber operator+(const LongNumber& other) const;
 	LongNumber operator-(const LongNumber& other) const;
 	LongNumber operator*(const LongNumber& other) const;
-	pair<LongNumber, LongNumber> divide(LongNumber& other);
+	pair<LongNumber, LongNumber> divide(LongNumber& first, LongNumber& other);
 	LongNumber getPow(long long pow);
-
+	LongNumber gcd(LongNumber& other);
 };
